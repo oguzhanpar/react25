@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from "./components/sidebar/Sidebar";
+import Topnav from "./components/topnav/Topnav";
+import { Layout, Space } from 'antd';
+const {Footer, Content } = Layout;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
+const contentStyle = {
+  textAlign: 'center',
+  minHeight: 120,
+  lineHeight: '120px',
+  color: '#fff',
+  backgroundColor: '#108ee9',
+};
+
+
+const footerStyle = {
+  textAlign: 'center',
+  color: '#fff',
+  backgroundColor: '#7dbcea',
+};
+
+const App = () => (
+  <Space
+    direction="vertical"
+    style={{
+      width: '100%',
+    }}
+    size={[0, 48]}
+  >
+    <Layout>
+      <Sidebar/>
+      <Layout>
+       <Topnav/>
+        <Content style={contentStyle}>Content</Content>
+        <Footer style={footerStyle}>Footer</Footer>
+      </Layout>
+    </Layout>
+  </Space>
+);
 export default App;
